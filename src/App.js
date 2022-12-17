@@ -1,22 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./zak-fej2.png";
+import zakBasz from "./zakics_meleg.jpg";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const [pic, setPic] = useState(false);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {pic === false && (
+          <div>
+            <img src={logo} className="App-logo" alt="logo" />
+            <h1>Boldog Karácsonyt!</h1>
+          </div>
+        )}
+        {pic && <img src={zakBasz} className="zak_basz" alt="logo" />}
+        <button onClick={() => setPic(!pic)}>
+          {!pic ? "Meglepi" : "Vissza"}
+        </button>
       </header>
     </div>
   );
